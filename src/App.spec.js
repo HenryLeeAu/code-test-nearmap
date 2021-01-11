@@ -90,7 +90,7 @@ describe("<App />", () => {
     });
   });
 
-  it("clicks pin without detail info", async () => {
+  it("clicks pin to show empty detail info", async () => {
     const { queryByTestId, getAllByTestId, queryByText } = render(
       <Provider store={initStore()}>
         <App />
@@ -108,7 +108,7 @@ describe("<App />", () => {
     });
   });
 
-  it("clicks pin without detail info", async () => {
+  it("clicks pin to show detail info", async () => {
     const { queryByTestId, getAllByTestId, queryByText } = render(
       <Provider store={initStore()}>
         <App />
