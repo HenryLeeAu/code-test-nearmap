@@ -1,4 +1,4 @@
-## code test for Sympli
+## code test for Nearmap
 
 ## How to try this project
 
