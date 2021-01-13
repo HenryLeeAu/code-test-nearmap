@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getInitialPage } from "./redux/actions/currentPage";
+import { getMapData } from "./redux/actions/map";
 
 import Map from "./component/Map";
 import Modal from "./component/Modal";
@@ -18,8 +18,8 @@ const Wrapper = styled.div`
 const App = () => {
   const dispatch = useDispatch();
 
-  const loadingStatus = useSelector((state) => state.currentPage.status);
-  const list = useSelector((state) => state.currentPage.data);
+  const loadingStatus = useSelector((state) => state.map.status);
+  const list = useSelector((state) => state.map.data);
 
   const [selectedData, setSelectedData] = useState(null);
 
@@ -32,7 +32,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    dispatch(getInitialPage());
+    dispatch(getMapData());
   }, [dispatch]);
 
   return (

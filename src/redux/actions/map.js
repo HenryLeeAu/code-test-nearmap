@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { UPDATE_CURRENT_PAGE, UPDATE_LOADING_STATUS } from "../constants";
+import { UPDATE_MAP_DATA, UPDATE_LOADING_STATUS } from "../constants";
 
 const updateLoadingStatus = (status) => {
   return {
@@ -11,19 +11,19 @@ const updateLoadingStatus = (status) => {
   };
 };
 
-const updateCurrentPage = (pageContent) => {
+const updateMapData = (data) => {
   return {
-    type: UPDATE_CURRENT_PAGE,
-    payload: pageContent,
+    type: UPDATE_MAP_DATA,
+    payload: data,
   };
 };
 
-const fetchPageContent = (url) => (dispatch) => {
+const fetchMapData = (url) => (dispatch) => {
   dispatch(updateLoadingStatus("LOADING"));
   axios
     .get(url)
     .then(({ data }) => {
-      dispatch(updateCurrentPage(data));
+      dispatch(updateMapData(data));
       dispatch(updateLoadingStatus("SUCCESS"));
     })
     .catch((error) => {
@@ -31,6 +31,6 @@ const fetchPageContent = (url) => (dispatch) => {
     });
 };
 
-export const getInitialPage = () => (dispatch) => {
-  dispatch(fetchPageContent("/api/map-data.json"));
+export const getMapData = () => (dispatch) => {
+  dispatch(fetchMapData("/api/map-data.json"));
 };

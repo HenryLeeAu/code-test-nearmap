@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import currentPage from "./currentPage";
+import map from "./map";
 
 export default combineReducers({
-  currentPage,
+  map,
 });
